@@ -52,7 +52,7 @@ function init() {
 }
 
 function createTextAnimation() {
-  var geometry = generateTextGeometry("AS THE WORLD TURNS", {
+  var geometry = generateTextGeometry("Jasur", {
     size: 40,
     height: 12,
     font: "droid sans",
