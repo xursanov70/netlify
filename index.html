@@ -11,16 +11,9 @@
     <script defer src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/droid_sans_bold.typeface.js"></script>
     <script defer src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
     <script defer src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/bas.js"></script>
-    <script defer src="//cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
-    <script defer src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/TextGeometry.js"></script>
-    <script defer src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/FontUtils.js"></script>
-    <script defer src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/pnltri.min.js"></script>
-    <script defer src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/droid_sans_bold.typeface.js"></script>
-    <script defer src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
-    <script defer src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/bas.js"></script>
     <script defer src="main.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Responsive Three.js</title>
 </head>
 
 <body>
@@ -31,13 +24,54 @@
                 return pnlTriangulator.triangulate_polygon([contour].concat(holes));
             };
         })();
+
+        function createThreeScene() {
+            const container = document.getElementById('three-container');
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            // Set up the Three.js scene and camera
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+            camera.position.z = 5;
+
+            // Renderer setup
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(width, height);
+            container.appendChild(renderer.domElement);
+
+            // Basic cube for testing
+            const geometry = new THREE.BoxGeometry();
+            const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+            const cube = new THREE.Mesh(geometry, material);
+            scene.add(cube);
+
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                cube.rotation.x += 0.01;
+                cube.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            // Resize handler for responsive adjustments
+            window.addEventListener('resize', () => {
+                const newWidth = container.clientWidth;
+                const newHeight = container.clientHeight;
+                renderer.setSize(newWidth, newHeight);
+                camera.aspect = newWidth / newHeight;
+                camera.updateProjectionMatrix();
+            });
+        }
+
+        // Initialize the scene after page load
+        window.addEventListener('load', createThreeScene);
     </script>
 
-    <div id="three-container"></div>
+    <div id="three-container" style="width: 100vw; height: 100vh;"></div>
 
-    <div id="instructions">
-        MAX HUANG
-    </div>
 </body>
 
 </html>
