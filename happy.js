@@ -6,6 +6,9 @@ let h = canvas.height = window.innerHeight;
 
 const spiders = [];
 
+// Set different spider counts based on screen size
+const spiderCount = window.innerWidth < 600 ? 1000 : 3000; // Fewer spiders for mobile
+
 // Create Spider class with follow and tick functions
 class Spider {
     constructor() {
@@ -25,29 +28,30 @@ class Spider {
     tick(mouseX, mouseY, index, totalSpiders) {
         const distance = Math.hypot(this.x - mouseX, this.y - mouseY);
         
+        // Adjust heart shape size based on screen width
+        const heartRadius = window.innerWidth < 600 ? 15 : 30; // Smaller radius on mobile
+        
         // If within a certain distance, form a heart shape
         if (distance < 100) {
-            const heartRadius = 30; // Smaller heart radius
-            const angle = (index / totalSpiders) * Math.PI * 2; // Spread spiders along the heart
+            const angle = (index / totalSpiders) * Math.PI * 2;
 
             // Heart shape equations for positioning
             this.x = mouseX + heartRadius * (16 * Math.sin(angle) ** 3);
             this.y = mouseY - heartRadius * (13 * Math.cos(angle) - 5 * Math.cos(2 * angle) - 2 * Math.cos(3 * angle) - Math.cos(4 * angle));
-            this.inHeartFormation = true; // Set the flag to true to stop further adjustments
+            this.inHeartFormation = true;
         } else {
-            // If not forming heart, keep moving towards the mouse
             this.follow(mouseX, mouseY);
         }
 
         ctx.beginPath();
-        ctx.arc(this.x, this.y, 5, 0, Math.PI * 2); // Fixed size for heart shape
-        ctx.fillStyle = "rgba(255, 0, 0, 0.8)"; // Spider color with slight transparency
+        ctx.arc(this.x, this.y, 3, 0, Math.PI * 2); // Smaller size on mobile
+        ctx.fillStyle = "rgba(255, 0, 0, 0.8)";
         ctx.fill();
     }
 }
 
-// Spawn 1000 spiders
-for (let i = 0; i < 3000; i++) {
+// Spawn spiders based on screen size
+for (let i = 0; i < spiderCount; i++) {
     spiders.push(new Spider());
 }
 
@@ -68,13 +72,13 @@ addEventListener("pointermove", (e) => {
 
 // Main animation loop
 function animate() {
-    ctx.clearRect(0, 0, w, h); // Clear the canvas for new frame
+    ctx.clearRect(0, 0, w, h);
 
     spiders.forEach((spider, index) => {
-        spider.tick(mouseX, mouseY, index, spiders.length); // Pass mouse position and index to tick
+        spider.tick(mouseX, mouseY, index, spiders.length);
     });
 
     requestAnimationFrame(animate);
 }
 
-animate();
+animate(); 
