@@ -33,7 +33,7 @@
         /* Mobile background image */
         @media (max-width: 600px) {
             body {
-                background-image: url('https://i.pinimg.com/236x/f5/d1/77/f5d17724b5430f8bf56cbf509a4948ef.jpg');
+                background-image: url('https://i.pinimg.com/originals/84/51/d1/8451d1d15bbc0ece2496c54b23f7f3b2.jpg');
                 /* Replace with your mobile-friendly image URL */
             }
         }
@@ -42,7 +42,8 @@
         .title,
         .verse,
         .signature,
-        .location {
+        .location,
+        .countdown {
             position: absolute;
             text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
             text-align: center;
@@ -59,7 +60,7 @@
         }
 
         .title {
-            top: 40%;
+            top: 45%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 3.5em;
@@ -116,6 +117,15 @@
             }
         }
 
+        /* Countdown styling */
+        .countdown {
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.0em;
+        }
+
+
         /* Mobile adjustments */
         @media (max-width: 600px) {
             .message {
@@ -151,7 +161,7 @@
                 bottom: 10%;
                 white-space: nowrap;
             }
-            
+
             .heart {
                 font-size: 1em;
             }
@@ -164,7 +174,7 @@
     <div class="message">
         Assalamu alaykum, biz uchun qadrli inson!<br>
         Sizni 27-sentabr kuni bo'lib otadigan <br>
-        Jasurbek va kimdirning <br>
+        Jasurbek va Kimdirning <br>
         nikoh to'yi munosabati bilan <br>
         bo'ladigan visol oqshomiga<br>
         Xursanovlar oilasi tomonidan lutfan taklif etamiz <br>
@@ -190,6 +200,39 @@
             <i class="fas fa-map-marker-alt" style="color: red; font-size: 1.5em; margin-left: 5px;"></i>
         </a>
     </div>
+
+    <!-- Countdown Timer -->
+    <div class="countdown" id="countdown"></div>
+
+    <script>
+        // Set the date we're counting down to
+        const countdownDate = new Date("Sep 27, 2025 17:00:00").getTime();
+
+        // Update the countdown every 1 second
+        const countdownFunction = setInterval(function () {
+            // Get the current date and time
+            const now = new Date().getTime();
+
+            // Calculate the remaining time
+            const distance = countdownDate - now;
+
+            // Time calculations for days, hours, minutes, and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="countdown"
+            document.getElementById("countdown").innerHTML =
+                "Nikoh marosimigacha: " + days + "kun " + hours + "soat " + minutes + "daqiqa " + seconds + "soniya ";
+
+            // If the countdown is finished, write some text
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "Event has started!";
+            }
+        }, 1000);
+    </script>
 </body>
 
 </html>
