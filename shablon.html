@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diyorbek va Kumushning To'y Taklifnomasi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #000;
+            text-align: center;
+            background-image: url('depositphotos_15335429-stock-illustration-floral-seamless-summer-ornament.jpg'); /* Orqa fon rasmi */
+            background-size: cover; /* Rasmni butun ekran bo‘ylab qamrab oladi */
+            background-position: center; /* Rasmni markazda joylashtiradi */
+            background-attachment: fixed; /* Rasmni sahifa bilan birga harakatlanishini ta'minlaydi */
+        }
+        .container {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Yoritilgan fon */
+            border-radius: 10px; /* Qirralarni yumshatish */
+            display: inline-block; /* Faqat kerakli qismni qamrab olish */
+        }
+        h1 { color: #000; }
+        .countdown { font-size: 24px; margin: 20px 0; }
+        .map { margin: 20px 0; }
+        audio { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Assalomu Alaykum,</h1>
+        <p>Sizni qalbimizning eng go'zal damlariga guvoh bo'lishingizni istaymiz!</p>
+        <h2>Diyorbek va Kumush</h2>
+        <p>Baxt sari yo‘lga qadam qo‘ymoqda va biz ushbu unutilmas kunda sizni yonimizda bo‘lishingizni intiqlik bilan kutmoqdamiz.</p>
+        <p>📅 <strong>To‘y sanasi:</strong> 2024-yil 30-sentabr</p>
+        <p>📍 <strong>Manzil:</strong> Buvayda tumani, Grand to'yxonasi</p>
+        <p>⏰ <strong>Vaqt:</strong> Soat 16:00 da</p>
+        <p>Iltimos, bu baxtli kunga kelishingizni biz uchun yodga soling va ishtirokingizni oldindan tasdiqlang.</p>
+        <p>Mehr va ehtirom bilan, <br> Diyorbek va Kumush</p>
+
+        <div class="countdown" id="countdown"></div>
+
+        <div class="map">
+            <p>To‘yxona manzili:</p>
+            <a href="https://maps.app.goo.gl/f9gqvA7nYeuVVwKAA" target="_blank">Grand to'yxonasi manzilini ko‘ring</a>
+        </div>
+
+        <!-- Musiqa uchun audio element -->
+        <audio id="backgroundMusic">
+            <source src="5OIeIaAhQOg.mp3" type="audio/mpeg">
+            Sizning brauzeringiz audio elementini qo‘llab-quvvatlamaydi.
+        </audio>
+
+        <button class="play-music-button" onclick="playMusic()">Musiqani ijro etish</button>
+    </div>
+
+
+    <script>
+        // Countdown Timer
+        const countdown = document.getElementById('countdown');
+        const weddingDate = new Date('2024-09-30T16:00:00').getTime();
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdown.innerHTML = `${days} kun ${hours} soat ${minutes} daqiqa ${seconds} soniya`;
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
