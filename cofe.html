@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
   <style>
     body, html, #app {
       margin: 0;
       width: 100%;
       height: 100vh;
-      background-image: url('https://wallpapers.com/images/hd/happy-birthday-cake-in-black-ubv4w0ca8q30e82o.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -110,13 +107,13 @@
 
     const pc = particlesCursor({
       el: document.getElementById('app'),
-      gpgpuSize: 512,
+      gpgpuSize: 1025,
       colors: [0xff0000, 0xff0000], 
       color: 0xff0000,
       coordScale: 0.5,
-      noiseIntensity: 0.005,
-      noiseTimeCoef: 0.0001,
-      pointSize: 2,                 
+      noiseIntensity: 0.01,
+      noiseTimeCoef: 0.0003,
+      pointSize: 4,                 
       pointDecay: 0.0025,
       sleepRadiusX: 250,
       sleepRadiusY: 250,
@@ -124,33 +121,14 @@
       sleepTimeCoefY: 0.002
     });
 
-    document.addEventListener('mousemove', (event) => {
-      const mouseX = event.clientX / window.innerWidth;
-      const mouseY = 1 - event.clientY / window.innerHeight;
-      pc.uniforms.uMousePos.value.set(mouseX, mouseY);
-    });
+    function animateEffect() {
+      pc.uniforms.uCoordScale.value = 0.5 + Math.sin(Date.now() * 0.001) * 0.25;
+      pc.uniforms.uNoiseIntensity.value = 0.005 + Math.sin(Date.now() * 0.002) * 0.002;
+      pc.uniforms.uPointSize.value = 2 + Math.sin(Date.now() * 0.003) * 1;
+      requestAnimationFrame(animateEffect);
+    }
 
-    document.body.addEventListener('click', () => {
-      pc.uniforms.uColor.value.set(0xff0000); 
-      pc.uniforms.uCoordScale.value = 0.001 + Math.random() * 2;
-      pc.uniforms.uNoiseIntensity.value = 0.0001 + Math.random() * 0.001;
-      pc.uniforms.uPointSize.value = 1 + Math.random() * 10;
-    });
-
-    document.body.addEventListener('click', () => {
-      pc.uniforms.uColor.value.set(0xff0000); 
-      pc.uniforms.uCoordScale.value = 0.001 + Math.random() * 2;
-      pc.uniforms.uNoiseIntensity.value = 0.0001 + Math.random() * 0.001;
-      pc.uniforms.uPointSize.value = 1 + Math.random() * 10;
-
-      setTimeout(() => {
-        pc.uniforms.uColor.value.set(0x000000); 
-        pc.uniforms.uCoordScale.value = 0.001;
-        pc.uniforms.uNoiseIntensity.value = 0.0001;
-        pc.uniforms.uPointSize.value = 0;
-      }, 2000);
-    });
+    animateEffect();
   </script>
 </body>
-
 </html>
