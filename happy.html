@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,11 +33,16 @@
         /* Mobile background image */
         @media (max-width: 600px) {
             body {
-                background-image: url('https://img.freepik.com/free-vector/blank-floral-golden-frame_53876-99333.jpg'); /* Replace with your mobile-friendly image URL */
+                background-image: url('https://img.freepik.com/free-vector/blank-floral-golden-frame_53876-99333.jpg');
+                /* Replace with your mobile-friendly image URL */
             }
         }
 
-        .message, .title, .verse, .signature, .location {
+        .message,
+        .title,
+        .verse,
+        .signature,
+        .location {
             position: absolute;
             text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
             text-align: center;
@@ -97,18 +103,33 @@
         }
 
         @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
         }
 
         /* Mobile adjustments */
         @media (max-width: 600px) {
             .message {
-                font-size: 1.2em;
-                top: 5%;
+                top: 50px;
+                left: 50%;
+                transform: translate(-50%, 0);
+                font-size: 2.5em;
+                max-width: 80%;
+                /* Yangi kenglik */
                 line-height: 1.4em;
+                word-wrap: break-word;
+                /* Matnni to'liq o'qish uchun kiritilgan */
             }
+
 
             .title {
                 font-size: 2.5em;
@@ -169,4 +190,5 @@
         </a>
     </div>
 </body>
+
 </html>
