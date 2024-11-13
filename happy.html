@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,11 +33,16 @@
         /* Mobile background image */
         @media (max-width: 600px) {
             body {
-                background-image: url('https://d1csarkz8obe9u.cloudfront.net/posterpreviews/floral-flyer-template-design-14ecaee37e1be3eb3276808ea7e296ba.jpg?ts=1697115692'); /* Replace with your mobile-friendly image URL */
+                background-image: url('https://img.freepik.com/free-vector/blank-floral-golden-frame_53876-99333.jpg');
+                /* Replace with your mobile-friendly image URL */
             }
         }
 
-        .message, .title, .verse, .signature, .location {
+        .message,
+        .title,
+        .verse,
+        .signature,
+        .location {
             position: absolute;
             text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
             text-align: center;
@@ -97,15 +103,23 @@
         }
 
         @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
         }
 
         /* Mobile adjustments */
         @media (max-width: 600px) {
             .message {
-                font-size: 1.5em;
+                font-size: 1.3em;
                 top: 5%;
                 line-height: 1.4em;
                 white-space: nowrap;
@@ -119,12 +133,16 @@
             .verse {
                 font-size: 1.3em;
                 top: 60%;
+                white-space: nowrap;
             }
 
             .signature {
-                font-size: 1.2em;
-                bottom: 20px;
-                right: 20px;
+                /* Kichikroq font o'lchami */
+                bottom: 0;
+                /* Eng past burchak uchun 0 */
+                right: 0;
+                /* Eng o'ng burchak uchun 0 */
+                font-size: 2.0em;
 
             }
 
@@ -144,8 +162,10 @@
     <canvas id="canvas"></canvas>
     <div class="message">
         Assalamu alaykum, biz uchun qadrli inson!<br>
-        Sizni 27-sentabr kuni bo'lib otadigan Jasurbek va kimdirning <br>
-        nikoh to'yi munosabati bilan bo'ladigan visol oqshomiga <br>
+        Sizni 27-sentabr kuni bo'lib otadigan <br>
+        Jasurbek va kimdirning <br>
+        nikoh to'yi munosabati bilan <br>
+        bo'ladigan visol oqshomiga<br>
         Xursanovlar oilasi tomonidan lutfan taklif etamiz <br>
     </div>
 
@@ -170,4 +190,5 @@
         </a>
     </div>
 </body>
+
 </html>
