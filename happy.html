@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spider Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="happy.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Charmonman&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Great Vibes', cursive;
+            color: white;
+            position: relative;
+            background-image: url('https://www.shutterstock.com/shutterstock/videos/1099110469/thumb/1.jpg?ip=x480');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        .message {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            font-size: 2.5em;
+            text-align: center;
+            z-index: 1;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.7);
+        }
+
+        .title {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3.5em;
+            color: white;
+            text-align: center;
+            z-index: 1;
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1.5em;
+            color: red;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .verse {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5em;
+            text-align: center;
+            z-index: 1;
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .signature {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 2em;
+            text-align: right;
+            z-index: 1;
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .location {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            font-size: 2em;
+            color: lightgrey;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .location a {
+            color: lightgrey;
+            text-decoration: none;
+        }
+
+        .location a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <div class="message">
+        Assalamu alaykum, biz uchun qadrli inson!<br>
+        Sizni 27-sentabr kuni bo'lib otadigan Jasurbek va kimdirning
+        nikoh to'yi munosabati bilan bo'ladigan visol oqshomiga 
+         Xursanovlar oilasi tomonidan lutfan taklif etamiz.
+    </div>
+
+    <div class="title">
+        Jasur & Kimdir
+    </div>
+
+    <div class="verse">
+        Alloh ularning qalbini sevgi ila birlashtirdi<br>
+        AnFol surasi, 63-oyat
+    </div>
+
+    <div class="signature">
+        Hurmat ila Xursanovlar oilasi
+    </div>
+
+    <div class="location">
+        Manzil uchun
+        <span style="margin-left: 8px; color: lightgrey;">➔</span>
+        <a href="https://maps.app.goo.gl/APzk8WajCjXHbedY6" target="_blank">
+            <i class="fas fa-map-marker-alt" style="color: red; font-size: 1.5em; margin-left: 5px;"></i>
+        </a>
+    </div>
+
+    <script src="happy.js"></script>
+</body>
+
+</html>
