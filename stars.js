@@ -19,7 +19,7 @@ class ShootingStar {
         this.setNewStyleVar('--start-x', this.start.x);
         this.setNewStyleVar('--start-y', this.start.y);
 
-        this.setNewStyleVar('--duration', Math.random() * 2 + 2 + 's');  // Faster movement
+        this.setNewStyleVar('--duration', Math.random() * 1 + 4 + 's');  // Faster movement
 
         this.setNewStyleVar('--delay', Math.random() + 's');
 
@@ -46,7 +46,7 @@ class NightSky {
     constructor() {
         this.nightSky = document.getElementById('night-sky');
 
-        this.numberOfStars = 200;  // More stars
+        this.numberOfStars = 1000;  // More stars
         this.addStars(this.numberOfStars);
     }
 
