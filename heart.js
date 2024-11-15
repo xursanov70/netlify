@@ -21,7 +21,7 @@ function init() {
   backgroundImage = new Image();
   if (isMobile) {
     // Load a different image for mobile devices
-    backgroundImage.src = 'https://i.pinimg.com/736x/17/db/dd/17dbdd33fb7e14ce63c8b0fed58e88a7.jpg'; // Replace with your mobile image path
+    backgroundImage.src = 'https://img.freepik.com/premium-photo/there-is-heart-shaped-object-beach-with-rocks-generative-ai_900814-13871.jpg?w=360'; // Replace with your mobile image path
   } else {
     // Load a different image for desktop devices
     backgroundImage.src = 'https://static.vecteezy.com/system/resources/previews/002/539/740/non_2x/abstract-low-poly-pink-background-free-vector.jpg'; // Replace with your desktop image path
