@@ -151,46 +151,43 @@
         /* Mobile adjustments */
         @media (max-width: 600px) {
             .message {
-                font-size: 1.6em;
-                top: 5%;
-                line-height: 1.4em;
-                white-space: nowrap;
-            }
+        font-size: 1.6em;
+        top: 5%;
+        line-height: 1.4em;
+        white-space: nowrap;
+    }
 
-            .title {
-                font-size: 2.5em;
-                top: 45%;
-            }
+    .title {
+        font-size: 2.5em;
+        top: 45%;
+    }
 
-            .verse {
-                font-size: 1.7em;
-                top: 50%;
-                white-space: nowrap;
-            }
+    .verse {
+        font-size: 1.7em;
+        top: 55%; /* Adjusted to move it lower */
+        white-space: nowrap;
+    }
 
-            .signature {
-                bottom: 0;
-                right: 0.1;
-                font-size: 1.4em;
-            }
+    .signature {
+        bottom: 0;
+        right: 0.1;
+        font-size: 1.4em;
+    }
 
-            .location {
-                font-size: 1.7em;
-                bottom: 13%;
-                white-space: nowrap;
-            }
+    .location {
+        font-size: 1.7em;
+        bottom: 13%;
+        white-space: nowrap;
+    }
 
-            .countdown {
-                top: 75%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                font-size: 1.8em;
-                white-space: nowrap;
-            }
+    .countdown {
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.8em;
+        white-space: nowrap;
+    }
 
-            .heart {
-                font-size: 1em;
-            }
         }
     </style>
 </head>
@@ -223,6 +220,34 @@
     <div class="countdown" id="countdown"></div>
 
     <script>
+
+const countdownDate = new Date("Sep 27, 2026 16:00:00").getTime();
+        
+        // Update the countdown every 1 second
+        const countdownFunction = setInterval(function () {
+            // Get the current date and time
+            const now = new Date().getTime();
+
+            // Calculate the remaining time
+            const distance = countdownDate - now;
+
+            // Time calculations for days, hours, minutes, and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="countdown"
+            document.getElementById("countdown").innerHTML =
+                 days + "  kun " + hours + "  soat " + minutes + "  daqiqa  " + seconds + "  soniya  ";
+
+            // If the countdown is finished, write some text
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "Event has started!";
+            }
+        }, 1000);
+
         // Typewriter effect for the main message with smooth fade-in
         const messageText = `Assalamu alaykum, biz uchun qadrli inson!
 Sizni 27-sentabr kuni bo'lib otadigan
@@ -377,8 +402,8 @@ Xursanovlar oilasi tomonidan lutfan taklif etamiz.`;
         }
 
         // Start the sequence
-        typeWriter(() => typeTitle(() => typeVerse(() => countdownTimer(() => {
-            typeSignature();
+        typeWriter(() => typeTitle(() => typeVerse(() => typeSignature(() => {
+          
         }))));
     </script>
 </body>
