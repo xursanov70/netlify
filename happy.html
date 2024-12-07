@@ -50,6 +50,33 @@
             z-index: 1;
         }
 
+        .play-button {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 15px 30px;
+        font-size: 1.5em;
+        color: white;
+        background: linear-gradient(45deg, #716c36, #c0b052);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .play-button:hover {
+        background: linear-gradient(45deg, #c1a52d, #997e2ca5);
+        transform: translateX(-50%) scale(1.05);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .play-button:active {
+        transform: translateX(-50%) scale(0.95);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
         .message {
             top: 50px;
             left: 50%;
@@ -135,6 +162,12 @@
                 white-space: nowrap;
             }
 
+            .play-button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            bottom: 30px;
+        }
+
             .title {
                 font-size: 2.5em;
                 /* top: 40%; */
@@ -211,35 +244,44 @@
     <!-- Countdown Timer -->
     <div class="countdown" id="countdown"></div>
 
+    <button onclick="playAudio()" class="play-button">Musiqani boshlash</button>
+    <!-- Play audio button -->
+    <!-- <button onclick="playAudio()" style="position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); padding: 10px 20px; font-size: 1.2em;">Musiqani boshlash</button> -->
+
+    <!-- Audio -->
+    <audio id="backgroundAudio" loop>
+        <source src="audios/output.mp3" type="audio/mpeg">
+        Sizning brauzeringiz ushbu audio formatni qo'llab-quvvatlamaydi.
+    </audio>
+
     <script>
-        // Set the date we're counting down to
+        function playAudio() {
+            const audio = document.getElementById('backgroundAudio');
+            audio.play().catch(error => {
+                console.error("Audio o'ynatishda xatolik:", error);
+            });
+        }
+
+        // Countdown timer code
         const countdownDate = new Date("Sep 27, 2026 16:00:00").getTime();
-
-        // Update the countdown every 1 second
         const countdownFunction = setInterval(function () {
-            // Get the current date and time
             const now = new Date().getTime();
-
-            // Calculate the remaining time
             const distance = countdownDate - now;
-
-            // Time calculations for days, hours, minutes, and seconds
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Display the result in the element with id="countdown"
             document.getElementById("countdown").innerHTML =
-                 days + "  kun " + hours + "  soat " + minutes + "  daqiqa  " + seconds + "  soniya  ";
+                days + " kun " + hours + " soat " + minutes + " daqiqa " + seconds + " soniya ";
 
-            // If the countdown is finished, write some text
             if (distance < 0) {
                 clearInterval(countdownFunction);
-                document.getElementById("countdown").innerHTML = "Event has started!";
+                document.getElementById("countdown").innerHTML = "Tadbir boshlandi!";
             }
         }, 1000);
     </script>
 </body>
+
 
 </html>
