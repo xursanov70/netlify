@@ -1,1 +1,1 @@
-assalamu alaykum
+va alaykum assalam
