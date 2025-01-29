@@ -1,1 +1,2 @@
-va alaykum assalam
+clearstatcacheclear
+clearstatcache
