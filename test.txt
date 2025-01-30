@@ -1,3 +1,0 @@
-revert uchun test
-new
-test
