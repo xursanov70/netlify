@@ -1,3 +1,4 @@
-assalamu alaykum
-nima gap 
-qannaysiz
+sdfd
+qaytar
+qaytarma
+yangi commit uchun
