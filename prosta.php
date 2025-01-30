@@ -1,2 +1,0 @@
-clearstatcacheclear
-clearstatcache
