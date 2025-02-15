@@ -1,14 +1,14 @@
 const messages = [
-    "Are you sure?",
-    "Really sure??",
-    "Are you positive?",
-    "Pookie please...",
-    "Just think about it!",
-    "If you say no, I will be really sad...",
-    "I will be very sad...",
-    "I will be very very very sad...",
-    "Ok fine, I will stop asking...",
-    "Just kidding, say yes please! ❤️"
+    "Ishonching komilmi?",
+    "Haqiqatan hammi??",
+    "Aniqmi??",
+    "Annniqmi dedim senga??",
+    "Yana bir o'ylab ko'r!",
+    "Qara lekin yo'q desang?",
+    "Juda xafa bo'laman lekin",
+    "Oxirgi marta so'rayapman!?",
+    "Mayli unda so'rashni to'xtataman!",
+    "Hazil! ❤️"
 ];
 
 let messageIndex = 0;
