@@ -12,10 +12,11 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #151f28;
+  padding: 1rem;
 }
 
 .container {
-  width: 70%;
+  width: 100%;
   max-width: 800px;
   height: 400px;
   display: flex;
@@ -38,12 +39,7 @@ body {
   object-fit: cover;
 }
 
-.card {
-  flex: 1;
-  height: 100%;
-  transition: all 400ms;
-  cursor: pointer;
-}
+/* Parallax effect */
 .card:nth-child(odd) {
   translate: 0 -20px;
 }
@@ -55,4 +51,25 @@ body {
 }
 .card:hover {
   flex: 3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+  .card {
+    flex: none;
+    height: 200px;
+    translate: 0 0;
+  }
+  .container:hover .card:not(:hover) {
+    filter: none;
+  }
+  .card:hover {
+    flex: none;
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  }
 }
