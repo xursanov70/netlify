@@ -1,3 +1,4 @@
+/* CSS */
 *,
 *::before,
 *::after {
@@ -38,38 +39,16 @@ body {
   height: 100%;
   object-fit: cover;
 }
-
-/* Parallax effect */
 .card:nth-child(odd) {
   translate: 0 -20px;
 }
 .card:nth-child(even) {
   translate: 0 20px;
 }
-.container:hover .card:not(:hover) {
+.container:hover .card:not(.active):not(:hover) {
   filter: grayscale(100%);
 }
-.card:hover {
+.card:hover,
+.card.active {
   flex: 3;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    height: auto;
-  }
-  .card {
-    flex: none;
-    height: 200px;
-    translate: 0 0;
-  }
-  .container:hover .card:not(:hover) {
-    filter: none;
-  }
-  .card:hover {
-    flex: none;
-    transform: scale(1.02);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  }
 }
